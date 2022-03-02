@@ -1,0 +1,6 @@
+<ProcessVirtualRegionModel xmlns="http://schemas.datacontract.org/2004/07/nmecc.Models" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.w3.org/2001/XMLSchema"><Created i:type="x:string" xmlns="">2022/03/01 23:17:11</Created><Name i:type="x:string" xmlns="">snesgt - 0, 2, 1, 8</Name><ProcessName i:type="x:string" xmlns="">snesgt</ProcessName><Version i:type="x:string" xmlns="">0, 2, 1, 8</Version><Script i:type="x:string" xmlns="">regions = {}&#xD;
+address = read_memory(0x4FCDC0, 4)&#xD;
+address2 = read_memory(address-0x60, 4)&#xD;
+table.insert(regions, {address=address2, size=0x2000, display=0x306000})&#xD;
+table.insert(regions, {address=address, size=0x20000, display=0x7e0000})&#xD;
+return regions</Script><BigEndian i:type="x:boolean" xmlns="">false</BigEndian></ProcessVirtualRegionModel>
