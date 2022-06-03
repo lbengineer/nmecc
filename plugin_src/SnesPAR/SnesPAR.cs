@@ -36,8 +36,14 @@ namespace SnesPAR
         /// Called repeatedly at a set cycle from when Start is called until Stop is called.
         /// Startが呼び出されてからStopが呼び出されるまでの間、設定された周期で繰り返し呼び出される
         /// </summary>
-        /// <param name="readFunc">アドレスとサイズを指定してメモリの値を読み込む関数</param>
-        /// <param name="writeFunc">アドレスとサイズと値を指定してメモリに書き込む関数</param>
+        /// <param name="readFunc">
+        /// A function that reads a memory value by specifying an address and size
+        /// アドレスとサイズを指定してメモリの値を読み込む関数
+        /// </param>
+        /// <param name="writeFunc">
+        /// Function to write to memory by specifying address, size and value
+        /// アドレスとサイズと値を指定してメモリに書き込む関数
+        /// </param>
         /// <returns></returns>
         public async Task Execute(Func<nint, nint, BigInteger> readFunc, Action<nint, nint, BigInteger> writeFunc)
         {
@@ -60,11 +66,15 @@ namespace SnesPAR
         /// The text entered in the code field
         /// コード欄に入力されているテキスト
         /// </param>
+        /// <param name="encrypted">
+        /// Whether "code" is encrypted
+        /// codeが暗号化されているか
+        /// </param>
         /// <returns>
         /// Address to display in memory
         /// メモリ表示するアドレス
         /// </returns>
-        public nint GetAddress(string code)
+        public nint GetAddress(string code, bool encrypted = false)
         {
             return Convert(code).FirstOrDefault().Item1;
         }
@@ -77,7 +87,11 @@ namespace SnesPAR
         /// List of (address, size, value)
         /// (アドレス,サイズ,値)のリスト
         /// </param>
-        public string GetCodeString(IEnumerable<Tuple<nint, int, ulong>> memory)
+        /// <param name="encrypted">
+        /// Whether "code" is encrypted
+        /// codeが暗号化されているか
+        /// </param>
+        public string GetCodeString(IEnumerable<Tuple<nint, int, ulong>> memory, bool encrypted = false)
         {
             return memory
                 .SelectMany(data => Enumerable.Range(0, data.Item2).Select(index => new Tuple<nint, ulong>(data.Item1 + index, (data.Item3 >> (8 * index)) & 0xff)))
@@ -113,7 +127,11 @@ namespace SnesPAR
         /// The text entered in the code field
         /// コード欄に入力されているテキスト
         /// </param>
-        public void Start(string code)
+        /// <param name="encrypted">
+        /// Whether "code" is encrypted
+        /// codeが暗号化されているか
+        /// </param>
+        public void Start(string code, bool encrypted = false)
         {
             _codes = Convert(code);
         }
@@ -140,5 +158,40 @@ namespace SnesPAR
                     )
                 ).ToList();
         }
+
+        /// <summary>
+        /// Whether it can be encrypted
+        /// 暗号可能か
+        /// </summary>
+        /// <returns></returns>
+        public bool CanEncrypt() => false;
+
+        /// <summary>
+        /// Encrypt the specified code
+        /// 指定されたコードを暗号化する
+        /// </summary>
+        /// <param name="code">
+        /// The text entered in the code field (encrypted)
+        /// コード欄に入力されているテキスト(暗号済み)
+        /// </param>
+        /// <returns>
+        /// Encrypted code
+        /// 暗号化されたコード
+        /// </returns>
+        public string Encrypt(string code) => code;
+
+        /// <summary>
+        /// Decrypt the specified code
+        /// 指定されたコードを暗号化する
+        /// </summary>
+        /// <param name="code">
+        /// The text entered in the code field (decrypted)
+        /// コード欄に入力されているテキスト(復号済み)
+        /// </param>
+        /// <returns>
+        /// Decrypted code
+        /// 復号化されたコード
+        /// </returns>
+        public string Decrypt(string code) => code;
     }
 }
