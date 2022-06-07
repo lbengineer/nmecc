@@ -1,1 +1,1 @@
-https://github.com/lbengineer/nmecc/raw/main/plugins/SnesPAR.dll
+https://github.com/lbengineer/nmecc/raw/main/plugins/SFC_PAR.dll
