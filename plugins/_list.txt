@@ -1,1 +1,2 @@
+https://github.com/lbengineer/nmecc/raw/main/plugins/FC_PAR.dll
 https://github.com/lbengineer/nmecc/raw/main/plugins/SFC_PAR.dll
