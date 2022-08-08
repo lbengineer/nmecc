@@ -2,3 +2,4 @@ https://github.com/lbengineer/nmecc/raw/main/plugins/FC_PAR.dll
 https://github.com/lbengineer/nmecc/raw/main/plugins/SFC_PAR.dll
 https://github.com/lbengineer/nmecc/raw/main/plugins/N64_PAR.dll
 https://github.com/lbengineer/nmecc/raw/main/plugins/GC_PAR.dll
+https://github.com/lbengineer/nmecc/raw/main/plugins/GB_PAR.dll
