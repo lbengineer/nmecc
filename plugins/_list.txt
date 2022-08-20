@@ -5,3 +5,4 @@ https://github.com/lbengineer/nmecc/raw/main/plugins/GC_PAR.dll
 https://github.com/lbengineer/nmecc/raw/main/plugins/GB_PAR.dll
 https://github.com/lbengineer/nmecc/raw/main/plugins/GBA_PAR.dll
 https://github.com/lbengineer/nmecc/raw/main/plugins/NDS_PAR.dll
+https://github.com/lbengineer/nmecc/raw/main/plugins/PS_PAR.dll
