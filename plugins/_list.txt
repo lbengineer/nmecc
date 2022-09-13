@@ -11,3 +11,4 @@ https://github.com/lbengineer/nmecc/raw/main/plugins/PSP_PAR.dll
 https://github.com/lbengineer/nmecc/raw/main/plugins/PSP_CWC.dll
 https://github.com/lbengineer/nmecc/raw/main/plugins/MD_PAR.dll
 https://github.com/lbengineer/nmecc/raw/main/plugins/SS_PAR.dll
+https://github.com/lbengineer/nmecc/raw/main/plugins/GG_PAR.dll
