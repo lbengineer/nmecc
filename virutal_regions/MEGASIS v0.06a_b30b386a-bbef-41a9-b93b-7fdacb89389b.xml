@@ -1,0 +1,6 @@
+<ProcessVirtualRegionModel xmlns="http://schemas.datacontract.org/2004/07/nmecc.Models" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.w3.org/2001/XMLSchema"><Id i:type="x:string" xmlns="">b30b386a-bbef-41a9-b93b-7fdacb89389b</Id><Name i:type="x:string" xmlns="">MEGASIS v0.06a</Name><ProcessName i:type="x:string" xmlns="">megasis</ProcessName><Version i:type="x:string" xmlns=""/><Script i:type="x:string" xmlns="">regions = {}&#xD;
+tmp = read_memory(0x49FBFC, 4)&#xD;
+tmp = read_memory(tmp + 0x1818C, 4)&#xD;
+address = read_memory(tmp + 0x8, 4)&#xD;
+table.insert(regions, {address=address, size=0x10000, display=0xFF0000})&#xD;
+return regions</Script><BigEndian i:type="x:boolean" xmlns="">true</BigEndian></ProcessVirtualRegionModel>

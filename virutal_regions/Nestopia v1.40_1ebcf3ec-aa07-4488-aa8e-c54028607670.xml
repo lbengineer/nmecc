@@ -1,0 +1,18 @@
+<ProcessVirtualRegionModel xmlns="http://schemas.datacontract.org/2004/07/nmecc.Models" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="http://www.w3.org/2001/XMLSchema"><Id i:type="x:string" xmlns="">1ebcf3ec-aa07-4488-aa8e-c54028607670</Id><Name i:type="x:string" xmlns="">Nestopia v1.40</Name><ProcessName i:type="x:string" xmlns="">nestopia</ProcessName><Version i:type="x:string" xmlns="">0.01</Version><Script i:type="x:string" xmlns="">regions = {}&#xD;
+&#xD;
+tmp = read_memory(0x5B2BCC, 4)&#xD;
+baseaddress = read_memory(tmp, 4)&#xD;
+address = baseaddress + 0x98&#xD;
+table.insert(regions, {address=address, size=0x800, display=0})&#xD;
+&#xD;
+tmp = read_memory(baseaddress + 0x601B0, 4) + 0x50&#xD;
+address = read_memory(tmp, 4)&#xD;
+table.insert(regions, {address=address, size=0x2000, display=0x6000})&#xD;
+&#xD;
+tmp = read_memory(baseaddress + 0x60A98, 4) + 0x18&#xD;
+address = read_memory(tmp, 4)&#xD;
+tmp = read_memory(baseaddress + 0x60A98, 4) + 0x20&#xD;
+size = read_memory(tmp, 4)&#xD;
+table.insert(regions, {address=address, size=size, display=0x100000})&#xD;
+&#xD;
+return regions</Script><BigEndian i:type="x:boolean" xmlns="">false</BigEndian></ProcessVirtualRegionModel>
